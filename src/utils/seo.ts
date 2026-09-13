@@ -14,7 +14,7 @@ export interface RouteSEO {
 const BASE_URL =
   typeof window !== 'undefined' && window.location.origin
     ? window.location.origin
-    : 'https://ganpatibappamorya.vercel.app';
+    : 'https://ganpatigreeting.vercel.app';
 
 export const ROUTES_SEO: Record<string, RouteSEO> = {
   '/': {

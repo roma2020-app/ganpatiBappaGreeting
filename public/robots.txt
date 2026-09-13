@@ -4,4 +4,4 @@ Allow: /
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://ais-dev-m2a3u64azey2jef5chookq-762530089106.asia-southeast1.run.app/sitemap.xml
+Sitemap: https://ganpatigreeting.vercel.app/sitemap.xml

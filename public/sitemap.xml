@@ -3,42 +3,42 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Homepage -->
   <url>
-    <loc>https://ganpatibappamorya.vercel.app/</loc>
+    <loc>https://ganpatigreeting.vercel.app/</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- Main Card Generator / Greetings -->
   <url>
-    <loc>https://ganpatibappamorya.vercel.app/ganpati-greetings</loc>
+    <loc>https://ganpatigreeting.vercel.app/ganpati-greetings</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Marathi Ganpati Wishes -->
   <url>
-    <loc>https://ganpatibappamorya.vercel.app/ganpati-wishes-marathi</loc>
+    <loc>https://ganpatigreeting.vercel.app/ganpati-wishes-marathi</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Hindi Ganpati Wishes -->
   <url>
-    <loc>https://ganpatibappamorya.vercel.app/ganpati-wishes-hindi</loc>
+    <loc>https://ganpatigreeting.vercel.app/ganpati-wishes-hindi</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- English Ganpati Wishes -->
   <url>
-    <loc>https://ganpatibappamorya.vercel.app/ganpati-wishes-english</loc>
+    <loc>https://ganpatigreeting.vercel.app/ganpati-wishes-english</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- About Page -->
   <url>
-    <loc>https://ganpatibappamorya.vercel.app/about</loc>
+    <loc>https://ganpatigreeting.vercel.app/about</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

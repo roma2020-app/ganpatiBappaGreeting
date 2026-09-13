@@ -59,9 +59,9 @@ app.post('/api/stats/cards-count/increment', (req, res) => {
   res.json({ count });
 });
 
-// Dynamic SEO files serving that adapts to any host (e.g. ganpatibappamorya.vercel.app, ganpatibappamorya.onrender.com, etc.)
+// Dynamic SEO files serving that adapts to any host (e.g. ganpatigreeting.vercel.app, ganpatibappamorya.vercel.app, etc.)
 app.get('/robots.txt', (req, res) => {
-  const host = req.get('host') || 'ganpatibappamorya.vercel.app';
+  const host = req.get('host') || 'ganpatigreeting.vercel.app';
   const proto = req.protocol === 'https' || req.get('x-forwarded-proto') === 'https' ? 'https' : 'http';
   const domain = `${proto}://${host}`;
 
@@ -78,7 +78,7 @@ Sitemap: ${domain}/sitemap.xml
 });
 
 app.get('/sitemap.xml', (req, res) => {
-  const host = req.get('host') || 'ganpatibappamorya.vercel.app';
+  const host = req.get('host') || 'ganpatigreeting.vercel.app';
   const proto = req.protocol === 'https' || req.get('x-forwarded-proto') === 'https' ? 'https' : 'http';
   const domain = `${proto}://${host}`;
   const today = new Date().toISOString().split('T')[0];
