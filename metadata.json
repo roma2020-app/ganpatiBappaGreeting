@@ -1,0 +1,6 @@
+{
+  "name": "Morya Greetings",
+  "description": "Create beautiful personalized Ganpati greeting cards for free. Add your name, choose Marathi, Hindi or English wishes, download and share instantly on WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="50%" stop-color="#FF9800"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+    <radialGradient id="auraGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFECB3" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#FFE082" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFB300" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="#B71C1C"/>
+  <circle cx="32" cy="32" r="28" fill="#FFF8E7" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="24" fill="url(#auraGrad)"/>
+  
+  <!-- Sacred Diya Base -->
+  <path d="M20 42 C 20 48, 44 48, 44 42 Z" fill="url(#goldGrad)" stroke="#B71C1C" stroke-width="0.8"/>
+  <ellipse cx="32" cy="42" rx="12" ry="2.5" fill="#FFE082"/>
+  
+  <!-- Auspicious Flame / Ganpati Silhouette element -->
+  <path d="M32 16 C 36 24, 38 29, 36 34 C 34 38, 30 38, 28 34 C 26 29, 28 24, 32 16 Z" fill="url(#goldGrad)"/>
+  <path d="M32 20 C 34.5 25, 35.5 28, 34 32 C 32.5 35, 30 35, 29 32 C 28 28, 29.5 25, 32 20 Z" fill="#FFF9C4"/>
+  
+  <!-- Sacred Red Tilak / Bindi -->
+  <circle cx="32" cy="28" r="2.2" fill="#D50000"/>
+  <path d="M32 22 L32 26" stroke="#D50000" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
