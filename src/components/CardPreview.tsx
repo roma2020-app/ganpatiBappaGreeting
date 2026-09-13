@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { GreetingCardData, CardTheme, Language } from '../types';
 import { CardCanvas } from './CardCanvas';
 import { toPng } from 'html-to-image';
@@ -87,6 +87,23 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ card, onReset, onUpdat
 
   const getShareableText = () => getWhatsAppMessage();
 
+  // Robust capture helper that gracefully handles cross-origin Google Fonts and CSS inspection
+  const captureCardImage = useCallback(async (element: HTMLElement, pixelRatio = 2.5) => {
+    try {
+      return await toPng(element, {
+        cacheBust: true,
+        pixelRatio,
+        skipFonts: true, // Prevents html-to-image from accessing cross-origin Google Font stylesheets via cssRules
+      });
+    } catch {
+      // Fallback if skipFonts still encountered an issue
+      return await toPng(element, {
+        pixelRatio: 2,
+        skipFonts: true,
+      });
+    }
+  }, []);
+
   // WhatsApp Sharing URL - encoded cleanly for both mobile and desktop
   const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(getWhatsAppMessage())}`;
 
@@ -96,7 +113,7 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ card, onReset, onUpdat
       try {
         e.preventDefault();
         setFeedbackMsg('Opening share sheet...');
-        const dataUrl = await toPng(cardRef.current, { cacheBust: true, pixelRatio: 2 });
+        const dataUrl = await captureCardImage(cardRef.current, 2);
         const res = await fetch(dataUrl);
         const blob = await res.blob();
         const file = new File([blob], `Morya-Ganpati-Greeting.png`, { type: 'image/png' });
@@ -131,10 +148,7 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ card, onReset, onUpdat
       // Slight wait for any image settle
       await new Promise((r) => setTimeout(r, 150));
 
-      const dataUrl = await toPng(cardRef.current, {
-        cacheBust: true,
-        pixelRatio: 2.5, // Crisp 2.5x retina quality for printing and WhatsApp
-      });
+      const dataUrl = await captureCardImage(cardRef.current, 2.5);
 
       const downloadLink = document.createElement('a');
       const safeName = (card.recipientName || 'Bappa-Card').replace(/[^a-zA-Z0-9_-]/g, '_');
