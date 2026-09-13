@@ -107,34 +107,13 @@ export const CardPreview: React.FC<CardPreviewProps> = ({ card, onReset, onUpdat
   // WhatsApp Sharing URL - encoded cleanly for both mobile and desktop
   const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(getWhatsAppMessage())}`;
 
-  const handleShareWhatsApp = async (e: React.MouseEvent) => {
-    // If Web Share API with image is supported (e.g. mobile Safari/Chrome with native share sheet), try that
-    if (navigator.share && cardRef.current) {
-      try {
-        e.preventDefault();
-        setFeedbackMsg('Opening share sheet...');
-        const dataUrl = await captureCardImage(cardRef.current, 2);
-        const res = await fetch(dataUrl);
-        const blob = await res.blob();
-        const file = new File([blob], `Morya-Ganpati-Greeting.png`, { type: 'image/png' });
-
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            title: card.title,
-            text: getWhatsAppMessage(),
-            files: [file],
-          });
-          setFeedbackMsg('Shared successfully!');
-          setTimeout(() => setFeedbackMsg(''), 2500);
-          return;
-        }
-      } catch {
-        // If native share cancelled or not allowed, continue to direct link
-      }
+  const handleShareWhatsApp = () => {
+    // Copy the greeting text to clipboard as well so the user always has it
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(getWhatsAppMessage()).catch(() => {});
     }
-
-    // Direct WhatsApp navigation fallback
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    setFeedbackMsg('Opening WhatsApp with your greeting & link... 🌺');
+    setTimeout(() => setFeedbackMsg(''), 3000);
   };
 
   // Download Card as PNG
